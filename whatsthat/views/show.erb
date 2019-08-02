@@ -1,0 +1,78 @@
+
+
+
+
+<div class="show-wrapper">
+  <img class="show-img" src="<%= @picture.image_url %>" alt="">
+</div>
+
+<div class="report">
+  <form action="/reports" method="post">
+  <button>👮</button>
+  </form>
+</div>
+
+<h2>Question:</h2>
+<p> <%= @picture.body %> </p>
+
+
+
+<% if logged_in? && current_user.id == @picture.user_id%>
+
+<a href="/pictures/<%= @picture.id %>/edit">edit picture</a>
+
+<% end %>
+
+<% if logged_in? && current_user.id == @picture.user_id %>
+
+  <form action="/pictures/<%= @picture.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button>delete</button>
+  </form>
+
+<% end %>
+
+<h2>Answers</h2>
+
+
+<% @comments.map do |comment| %>
+  <p>" <%= comment.body %> " by "<%= comment.user.username %> " Date Posted: " <%= comment.date %> "</p>
+  <% if logged_in? && current_user.id == @picture.user_id && @picture.solved == nil %>
+   <form action="/solved_pictures" method="post">
+      <input type="hidden" name="comment_id" value="<%= comment.id %>">
+      <input type="hidden" name="picture_id" value="<%= @picture.id %>">
+      <button>✅</button>
+    </form>
+
+    <% end %>
+
+  <% if Like.where(user_id: current_user.id, comment_id: comment.id ).empty? %>
+    <form action="/likes" method="post">
+      <input type="hidden" name="comment_id" value="<%= comment.id %>">
+      <input type="hidden" name="picture_id" value="<%= @picture.id %>">
+      <button>👍</button>
+    </form>
+  <% end %>
+<% end %>
+
+<% Comment.where(picture_id: @picture.id).select do |comment| %>
+  <% if Like.where(comment_id: comment.id).empty? %>
+    <p>" <%= comment.body %> " by "<%= comment.user.username %> " Date Posted: " <%= comment.date %> "</p>
+
+    <form action="/likes" method="post">
+      <input type="hidden" name="comment_id" value="<%= comment.id %>">
+      <input type="hidden" name="picture_id" value="<%= @picture.id %>">
+      <button>👍</button>
+    </form>
+  <% end %>
+<% end %>
+
+<% if logged_in? %>
+<form action="/comments" method="post">
+  <input type="hidden" name="picture_id" value="<%= @picture.id %>">
+  <textarea name="body"></textarea>
+  <button>Answer</button>
+</form>
+
+<% end %>
+

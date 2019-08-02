@@ -1,0 +1,119 @@
+img {
+  width: 50vmin;
+  padding: 1vmin;
+  height: 50vmin;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+footer {
+  background-color: #fbc99d;
+  text-align: center;
+}
+
+footer a {
+  display: inline-block;
+}
+
+.b-flex {
+  display: flex;
+  justify-content: center;
+}
+
+.report {
+  text-align: center;
+}
+
+.report button {
+  display: inline-block;
+}
+
+.input-box {
+  padding: 10vmin;
+}
+
+.show-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-bar {
+  background-color: #fbc99d;
+  padding: 2vmin;
+}
+
+.login-body {
+  padding: 45vmin;
+}
+
+.Wrapper {
+  text-align: center
+} 
+
+.img-section {
+  display: inline-block;
+  /* width: 10%;
+  margin: 0 auto;
+  display: inline-block;
+  justify-content: center; */
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+.column {
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.login-section {
+  display: inline-block;
+}
+
+.login-heading {
+  text-align: center;
+}
+
+.new-heading {
+  text-align: center;
+}
+
+.new-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 40vmin;
+}
+
+#title {
+  text-align: center;
+  padding: 2vmin;
+}
+
+body {
+  background-color: #fff6da;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}

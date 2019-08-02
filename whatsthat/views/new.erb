@@ -1,0 +1,22 @@
+<h1 class="new-heading">Post New Picture</h1>
+
+  <form action="/pictures" method="post" enctype="multipart/form-data">
+    <input type="file" name="image_file" />
+    <button>upload</button>
+  </form>
+
+<div class="new-wrapper">
+  <form action="/pictures" method="post">
+    <div class="new-image">
+    <label for="">Image Url</label>
+    <input type="text" name="image_url">
+    </div>
+    <div class="new-question">
+    <label for="">Question?</label>
+    <input class="input-box" type="text" name="body">
+    </div>
+    <div class="b-flex"></div>
+      <button class="ask-button">Ask Question</button>
+    </div>
+  </form>
+</div>

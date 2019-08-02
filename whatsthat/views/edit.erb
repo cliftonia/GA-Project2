@@ -1,0 +1,10 @@
+<h1>Edit Picture</h1>
+
+<form action="/pictures/<%= @picture.id %>" method="post">
+  <input type="hidden" name="_method" value="put"> 
+  <label for="">Title</label>
+  <input type="text" name="title" value="<%= @picture.title%>">
+  <label for="">Image Url</label>
+  <input type="text" name="image_url" value="<%= @picture.image_url%>">
+  <button>Update</button>
+</form>
