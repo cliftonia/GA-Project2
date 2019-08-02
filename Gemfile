@@ -7,4 +7,4 @@ gem 'bcrypt'
 gem 'email_address'
 gem 'carrierwave'
 
-gem 'pry'
+# gem 'pry'
