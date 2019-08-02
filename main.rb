@@ -5,6 +5,7 @@ require_relative 'database_config'
 # require 'carrierwave'
 # require 'carrierwave/orm/activerecord'
 # require 'fog'
+require 'email_address'
 
 
 require_relative 'models/picture'
