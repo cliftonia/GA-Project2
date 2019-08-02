@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 
 gem 'sinatra'
 gem 'pg'
-gem 'active_record'
+gem 'activerecord'
 gem 'bcrypt'
 gem 'email_address'
 gem 'carrierwave'
-gem 'rubygems'
-gem 'email_address'
+
+gem 'pry'

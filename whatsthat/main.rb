@@ -1,12 +1,11 @@
 require 'pry'
 require 'sinatra'
-require 'sinatra/reloader'
+# require 'sinatra/reloader'
 require_relative 'database_config'
 # require 'carrierwave'
 # require 'carrierwave/orm/activerecord'
 # require 'fog'
-require 'rubygems'
-require 'email_address'
+
 
 require_relative 'models/picture'
 require_relative 'models/comment'
