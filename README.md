@@ -1,8 +1,14 @@
-Web App: Whats That?
+# H1 Web App: Whats That? || My First Crud APP
 
-Languages used: Ruby
+## LANGUAGES USED: Ruby, HMTL, CSS
 
-Database: Postgres
+## TOOLS: Sinatra, ORM, ActiveRecord, CarrierWave,
+
+## CLOUD: AWS S3
+
+## DATABASE: Postgres
+
+I have created an CRUD app that is designed for users 
 
 This is a CRUD Web App designed for users to login and post images with questions. 
 
