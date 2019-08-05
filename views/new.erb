@@ -1,11 +1,20 @@
 <h1 class="new-heading">Post New Picture</h1>
 
+<div class="i-uploader">
   <form action="/pictures" method="post" enctype="multipart/form-data">
-    <input type="file" name="image_file" />
-    <button>upload</button>
+    <input class="choose-file" type="file" name="image_file" />
+    <div class="new-question">
+    <label for="">Question?</label>
+    <input class="input-box" type="text" name="body">
+    </div>
+    <div class="new-button">
+      <button class="btn btn-success">upload</button>
+    </div>
   </form>
+</div>
 
-<div class="new-wrapper">
+
+<%# <div class="new-wrapper">
   <form action="/pictures" method="post">
     <div class="new-image">
     <label for="">Image Url</label>
@@ -19,4 +28,4 @@
       <button class="ask-button">Ask Question</button>
     </div>
   </form>
-</div>
+</div> %>

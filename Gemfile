@@ -6,5 +6,4 @@ gem 'activerecord'
 gem 'bcrypt'
 gem 'email_address'
 gem 'carrierwave'
-
-# gem 'pry'
+gem 'fog-aws'

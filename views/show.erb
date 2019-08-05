@@ -2,14 +2,10 @@
 
 
 
-<div class="show-wrapper">
-  <img class="show-img" src="<%= @picture.image_url %>" alt="">
-</div>
 
-<div class="report">
-  <form action="/reports" method="post">
-  <button>👮</button>
-  </form>
+<div class="show-wrapper">
+
+  <img class="show-img" src="<%= @picture.image_file %>" alt="">
 </div>
 
 <h2>Question:</h2>
@@ -36,7 +32,7 @@
 
 
 <% @comments.map do |comment| %>
-  <p>" <%= comment.body %> " by "<%= comment.user.username %> " Date Posted: " <%= comment.date %> "</p>
+  <p> <span class="comment-body">"<%= comment.body %>"</span> by <span class="comment-username"> "<%= comment.user.username %>"</span> Date Posted: <span class="comment-date"> "<%= comment.date %>"</span></p>
   <% if logged_in? && current_user.id == @picture.user_id && @picture.solved == nil %>
    <form action="/solved_pictures" method="post">
       <input type="hidden" name="comment_id" value="<%= comment.id %>">
@@ -57,7 +53,7 @@
 
 <% Comment.where(picture_id: @picture.id).select do |comment| %>
   <% if Like.where(comment_id: comment.id).empty? %>
-    <p>" <%= comment.body %> " by "<%= comment.user.username %> " Date Posted: " <%= comment.date %> "</p>
+    <p> <span class="comment-body">"<%= comment.body %>"</span> by <span class="comment-username"> "<%= comment.user.username %>"</span> Date Posted: <span class="comment-date"> "<%= comment.date %>"</span></p>
 
     <form action="/likes" method="post">
       <input type="hidden" name="comment_id" value="<%= comment.id %>">

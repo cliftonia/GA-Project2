@@ -2,27 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hello World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Whats That?</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <link rel='stylesheet' href='/stylesheets/reset.css'>
   <link rel='stylesheet' href='/stylesheets/main.css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-<body>
+<body class="body">
+
   <% if logged_in? %>
     
     <div class="nav-bar">
-      <a href="/">Home</a>
-      <a href="">About</a>
+      <a class="active" href="/">Home</a>
+      <a href="/about">About</a>
       <a href="/my_pictures">My Questions</a>
       <a href="/solved_pictures">Solved</a>
       <a href="/pictures/new">Post new picture</a>
     </div>
-    
+
     <% else %>
 
     <div class="nav-bar">
-      <a href="/">Home</a>
-      <a href="">About</a>
+      <a class="active" href="/">Home</a>
+      <a href="/about">About</a>
       <a href="/signup">Sign Up</a>
       <a href="/login">Login</a>
     </div>
@@ -32,13 +35,14 @@
 
   <footer>
     <% if logged_in? %>
-      <p>Logged in as <%= current_user.username %></p>
+      <p class="logged-in">Logged in as <span class="username"> <%= current_user.username %></span></p>
       <form action="/sessions" method="post">
       <input type="hidden" name="_method" value="delete">
-      <button>logout</button>
+      <button class="btn btn-danger">logout</button>
       </form>
     <% end %>
     <a href="#title">back to top</a>
   </footer>
+  <script src="application"></script>
 </body>
 </html>

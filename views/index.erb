@@ -1,13 +1,14 @@
-<h1 id="title">Whats That?</h1>
+<h1 id="title">Whats That Image?</h1>
 
 <div class="Wrapper">
   <div class="img-section">
   <% @pictures.each do |picture| %>
 
-  <a href="/pictures/<%= picture.id %>"><img src="<%= picture.image_url %>" alt=""></a> 
+   <a href="/pictures/<%= picture.id %>"><img src="<%= picture.image_file %>" alt=""></a> 
 
   
   <% end %>
+
   </div>
 </div>
 

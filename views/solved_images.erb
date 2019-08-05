@@ -1,10 +1,10 @@
-<h1 id="Solved-Tite">Solved</h1>
+<h1 id="Solved-Tite">Solved Images</h1>
 
 <div class="Wrapper">
   <div class="img-section">
   <% @pictures.each do |picture| %>
 
-  <a href="/pictures/<%= picture.id %>"><img src="<%= picture.image_url %>" alt=""></a> 
+  <a href="/pictures/<%= picture.id %>"><img src="<%= picture.image_file %>" alt=""></a> 
 
   
   <% end %>

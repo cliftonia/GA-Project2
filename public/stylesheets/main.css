@@ -5,13 +5,23 @@ img {
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
 
+a {
+  text-decoration: none;
+}
+
 footer {
-  background-color: #fbc99d;
+  background-color: #042f4b;
   text-align: center;
+  color: white;
 }
 
 footer a {
   display: inline-block;
+  text-decoration: none;
+}
+
+footer button {
+  color: black;
 }
 
 .b-flex {
@@ -28,7 +38,23 @@ footer a {
 }
 
 .input-box {
-  padding: 10vmin;
+  /* padding: 10vmin; */
+  width: 60vmin;
+  padding-bottom: 1vmin;
+}
+
+input {
+  display: block;
+}
+
+.h-signup {
+  text-align: center;
+}
+
+.signup-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 30vmin;
 }
 
 .show-wrapper {
@@ -37,8 +63,33 @@ footer a {
 }
 
 .nav-bar {
-  background-color: #fbc99d;
-  padding: 2vmin;
+  background-color: #042f4b;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+#Solved-Tite {
+  text-align: center;
+}
+
+.nav-bar a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.nav-bar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.nav-bar a.active {
+  background-color: #9cf196;
+  color: white;
 }
 
 .login-body {
@@ -46,16 +97,22 @@ footer a {
 }
 
 .Wrapper {
-  text-align: center
+  text-align: center;
+  padding-bottom: 2vmin;
 } 
+
 
 .img-section {
   display: inline-block;
+  
+  /* position: relative;
+  width: 50%; */
   /* width: 10%;
   margin: 0 auto;
   display: inline-block;
   justify-content: center; */
 }
+
 
 .row {
   display: flex;
@@ -90,7 +147,31 @@ footer a {
 .new-wrapper {
   display: flex;
   justify-content: center;
-  padding: 40vmin;
+
+}
+
+.i-uploader {
+  display: flex;
+  justify-content: center;
+  padding: 30vmin;
+}
+
+.logged-in {
+  padding: 0vmin;
+  margin-bottom: 0vmin;
+}
+
+.username {
+  text-transform: uppercase;
+  text-shadow: 3px 2px red;
+}
+
+.choose-file {
+  padding-bottom: 1vmin;
+}
+
+p {
+  margin-bottom: 0vmin;
 }
 
 #title {
@@ -98,10 +179,17 @@ footer a {
   padding: 2vmin;
 }
 
-body {
+.body {
   background-color: #fff6da;
 }
 
+.new-button {
+  padding-top: 1vmin;
+}
+
+.login-b {
+  padding-top: 1vmin;
+}
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media screen and (max-width: 800px) {
   .column {

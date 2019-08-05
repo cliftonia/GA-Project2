@@ -1,10 +1,7 @@
-# require 'pry'
+require 'pry'
 require 'sinatra'
-# require 'sinatra/reloader'
+require 'sinatra/reloader'
 require_relative 'database_config'
-# require 'carrierwave'
-# require 'carrierwave/orm/activerecord'
-# require 'fog'
 require 'email_address'
 
 
@@ -12,8 +9,11 @@ require_relative 'models/picture'
 require_relative 'models/comment'
 require_relative 'models/user'
 require_relative 'models/like'
+# require_relative 'models/ImageUploader'
 
 enable :sessions
+
+
 
 helpers do 
   
@@ -50,37 +50,32 @@ end
 
 get '/' do
   @pictures = Picture.all
-  @pictures = Picture.where(solved: nil)
+  @pictures = Picture.where(solved: nil, reported: nil)
   erb :index
 end
 
-get '/my_pictures' do 
-  @pictures = Picture.where(user_id: current_user.id)
-  erb :my_pictures
-end 
-
-post '/likes' do
-  like = Like.new
-  like.comment_id = params[:comment_id]
-  like.user_id = current_user.id
-  like.save
+get '/about' do
   
-  redirect "/pictures/#{params[:picture_id]}"
+  erb :about
 end
 
-get '/solved_pictures' do 
-  @pictures = Picture.where.not(solved: nil)
-  erb :solved_images
+get '/reports' do
+  @pictures = Picture.all
+  @pictures = Picture.where.not(reported: nil)
+  erb :report
 end 
 
-post '/solved_pictures' do
-  solved = Picture.find_by id: "#{params[:picture_id]}"
-  solved.solved = params[:comment_id]
-  solved.save
+post '/reports' do
+  report = Picture.find_by id: "#{params[:picture_id]}"
+  report.reported = params[:picture_id]
+  report.save
+  redirect "/"
+end 
 
-  redirect "/solved_pictures"
-end
 
+require_relative 'routes/mypictures'
+require_relative 'routes/likes'
+require_relative 'routes/solved'
 require_relative 'routes/pictures'
 require_relative 'routes/comments'
 require_relative 'routes/sessions'
