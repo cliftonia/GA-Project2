@@ -1,12 +1,14 @@
 # H1 Web App: Whats That? || My First Crud APP
 
-## LANGUAGES USED: Ruby, HMTL, CSS
+### LANGUAGES USED: Ruby, HMTL, CSS
 
-## TOOLS: Sinatra, ORM, ActiveRecord, CarrierWave,
+### TOOLS: Sinatra, ORM, ActiveRecord, CarrierWave,
 
-## CLOUD: AWS S3
+### CLOUD: AWS S3
 
-## DATABASE: Postgres
+### DATABASE: Postgres
+
+### LINK: https://sheltered-beyond-96393.herokuapp.com/
 
 I have created an CRUD app that is designed for users 
 
