@@ -7,7 +7,7 @@
 
 require 'carrierwave'
 require 'carrierwave/orm/activerecord'
-# require 'fog'
+require 'fog/aws'
 
 CarrierWave.configure do |config|
   config.ignore_integrity_errors = false
