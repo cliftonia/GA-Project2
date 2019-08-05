@@ -7,4 +7,4 @@ gem 'bcrypt'
 gem 'email_address'
 gem 'carrierwave'
 gem 'fog-core', '2.1.0'
-gem 'fog-aws'
+gem 'fog-aws', group: :production
