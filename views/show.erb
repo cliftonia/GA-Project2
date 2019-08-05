@@ -8,6 +8,15 @@
   <img class="show-img" src="<%= @picture.image_file %>" alt="">
 </div>
 
+<div class="report-b">
+  <form action="/reports" method="post">
+  <input type="hidden" name="picture_id" value="<%= @picture.id %>">
+  <button>👮</button>
+</div>
+
+
+</form>
+
 <h2>Question:</h2>
 <p> <%= @picture.body %> </p>
 
@@ -19,7 +28,7 @@
 
 <% end %>
 
-<% if logged_in? && current_user.id == @picture.user_id %>
+<% if logged_in? && current_user.id == @picture.user_id || current_user.username == "admin" %>
 
   <form action="/pictures/<%= @picture.id %>" method="post">
     <input type="hidden" name="_method" value="delete">

@@ -64,9 +64,11 @@ get '/reports' do
   @pictures = Picture.where.not(reported: nil)
   erb :report
 end 
+require 'pry'
 
 post '/reports' do
   report = Picture.find_by id: "#{params[:picture_id]}"
+  binding.pry
   report.reported = params[:picture_id]
   report.save
   redirect "/"

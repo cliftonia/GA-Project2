@@ -11,6 +11,8 @@
 </head>
 <body class="body">
 
+
+
   <% if logged_in? %>
     
     <div class="nav-bar">
@@ -18,10 +20,16 @@
       <a href="/about">About</a>
       <a href="/my_pictures">My Questions</a>
       <a href="/solved_pictures">Solved</a>
-      <a href="/pictures/new">Post new picture</a>
+      <a href="/pictures/new">Post new Image</a>
     </div>
 
-    <% else %>
+      <% if current_user.username == "admin" %>
+      <div class="nav-bar">
+      <a href="/solved_pictures">Reported</a>
+    </div>
+
+      <% end %>
+    <%else%>
 
     <div class="nav-bar">
       <a class="active" href="/">Home</a>
@@ -30,6 +38,7 @@
       <a href="/login">Login</a>
     </div>
   <% end %>
+
 
   <%= yield %>
 

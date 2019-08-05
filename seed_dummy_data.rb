@@ -33,7 +33,7 @@ img = ["https://placekitten.com/g/200/300", "http://placekitten.com/200/300", "h
   picture.title = "#{titles.sample} #{titles2.sample}"
   picture.user_id = user.id
   picture.body = "#{captions.sample}"
-  picture.image_url = "#{img.sample}"
+  picture.image_file = File.open()
   picture.date = Date.today
   picture.save
 

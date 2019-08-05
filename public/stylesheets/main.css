@@ -149,7 +149,10 @@ input {
   justify-content: center;
 
 }
-
+.report-b {
+  display: flex;
+  justify-content: center;
+}
 .i-uploader {
   display: flex;
   justify-content: center;
