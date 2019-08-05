@@ -41,7 +41,7 @@
 
 
 <% @comments.map do |comment| %>
-  <p> <span class="comment-body">"<%= comment.body %>"</span> by <span class="comment-username"> "<%= comment.user.username %>"</span> Date Posted: <span class="comment-date"> "<%= comment.date %>"</span></p>
+  <p class="comment-p"> <span class="comment-body">"<%= comment.body %>"</span> By <span class="comment-username"> "<%= comment.user.username %>"</span> Date Posted: <span class="comment-date"> "<%= comment.date %>"</span></p>
   <% if logged_in? && current_user.id == @picture.user_id && @picture.solved == nil %>
    <form action="/solved_pictures" method="post">
       <input type="hidden" name="comment_id" value="<%= comment.id %>">
@@ -62,7 +62,7 @@
 
 <% Comment.where(picture_id: @picture.id).select do |comment| %>
   <% if Like.where(comment_id: comment.id).empty? %>
-    <p> <span class="comment-body">"<%= comment.body %>"</span> by <span class="comment-username"> "<%= comment.user.username %>"</span> Date Posted: <span class="comment-date"> "<%= comment.date %>"</span></p>
+    <p class="comment-p"> <span class="comment-body">"<%= comment.body %>"</span> By <span class="comment-username"> "<%= comment.user.username %>"</span> Date Posted: <span class="comment-date"> "<%= comment.date %>"</span></p>
 
     <form action="/likes" method="post">
       <input type="hidden" name="comment_id" value="<%= comment.id %>">
@@ -75,8 +75,12 @@
 <% if logged_in? %>
 <form action="/comments" method="post">
   <input type="hidden" name="picture_id" value="<%= @picture.id %>">
-  <textarea name="body"></textarea>
-  <button>Answer</button>
+  <div class="text-area">
+    <textarea name="body"></textarea>
+  </div>
+  <div class="answer-b">
+    <button class="btn btn-primary">Answer</button>
+  </div>
 </form>
 
 <% end %>

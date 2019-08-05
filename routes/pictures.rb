@@ -5,10 +5,10 @@ end
 post '/pictures' do
   picture = Picture.new
   picture.title = params[:title]
-  picture.image_url = params[:image_url]
   picture.image_file = params[:image_file]
   picture.body = params[:body]
   picture.user_id = current_user.id
+  picture.date = Date.today
   picture.save
   redirect '/'
 end

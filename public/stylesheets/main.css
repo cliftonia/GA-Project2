@@ -9,6 +9,55 @@ a {
   text-decoration: none;
 }
 
+.background {
+  background : url(https://i.imgur.com/vGVNHhS.jpg);
+  width: 100%;
+  color : white;
+  padding : 50px;
+  text-align: center;
+  background-size : cover;
+  background-position :  center 0%; 
+  animation-duration : 0.5s;
+  animation-name: animatedBackground;
+  animation-iteration-count: infinite; 
+  animation-timing-function: linear;
+  animation-play-state: paused;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  font-size: 6vmin;
+}
+
+@keyframes animatedBackground {
+  0%, 24% {
+    background-position :  center 12.5%;/*half of the first image... 100% / 4 images / 2*/
+  }
+    
+  25%, 49% {
+    background-position :  center  37.5%;/*half of he second image, and so on...*/
+  }
+  
+  50%, 74%{
+    background-position:  center 62.5%;
+  }
+  
+  75%, 100%{
+    background-position : center 87.5% ;
+  }
+    
+}
+
+.background:hover {
+  
+  animation-play-state:running;
+  
+}
+
+.image-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 2vmin;
+  
+}
+
 footer {
   background-color: #042f4b;
   text-align: center;
@@ -173,13 +222,37 @@ input {
   padding-bottom: 1vmin;
 }
 
-p {
+.comment-p {
   margin-bottom: 0vmin;
+}
+
+textarea {
+  width: 69vmin;
+  height: 5vmin;
+}
+.answer-b {
+  display: inline;
+  padding-bottom: 3vmin;
 }
 
 #title {
   text-align: center;
   padding: 2vmin;
+}
+
+.comment-body {
+  font-weight: bold;
+  /* font-style: italic; */
+  animation: mymove 5s infinite;
+}
+
+.comment-username {
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+.comment-date {
+  font-style: oblique;
 }
 
 .body {
