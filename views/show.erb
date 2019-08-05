@@ -28,7 +28,7 @@
 
 <% end %>
 
-<% if logged_in? && current_user.id == @picture.user_id || current_user.username == "admin" %>
+<% if logged_in? && (current_user.id == @picture.user_id || current_user.username == "admin") %>
 
   <form action="/pictures/<%= @picture.id %>" method="post">
     <input type="hidden" name="_method" value="delete">
