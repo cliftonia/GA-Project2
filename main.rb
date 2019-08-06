@@ -1,6 +1,9 @@
 # require 'pry'
 require 'sinatra'
 require 'sinatra/reloader' if development?
+also_reload 'models/*'
+also_reload 'views/*'
+also_reload 'routes/*'
 require_relative 'database_config'
 require 'email_address'
 

@@ -19,7 +19,13 @@ get '/pictures/:id' do
   @picture = Picture.find(params[:id])
   # @comments = Comment.where(picture_id: params[:id])
 
-  @comments = ActiveRecord::Base.connection.exec_query("SELECT comment_id, COUNT(*) AS likes FROM likes WHERE comment_id IN (SELECT id FROM comments WHERE picture_id = #{@picture.id}) GROUP BY comment_id ORDER BY likes DESC;")
+  # @comments = ActiveRecord::Base.connection.exec_query("SELECT comment_id, COUNT(*) AS likes FROM likes WHERE comment_id IN (SELECT id FROM comments WHERE picture_id = #{@picture.id}) GROUP BY comment_id ORDER BY likes DESC;")
+
+  @comments = Like
+              .select("comment_id, COUNT(*) AS likes")
+              .where("comment_id IN (SELECT id FROM comments WHERE picture_id = ?)", @picture.id)
+              .group(:comment_id)
+              .order(likes: :desc)
 
   @comments = @comments.map do |c|
     Comment.find(c["comment_id"])
