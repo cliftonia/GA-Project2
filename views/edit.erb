@@ -2,9 +2,9 @@
 
 <form action="/pictures/<%= @picture.id %>" method="post">
   <input type="hidden" name="_method" value="put"> 
-  <label for="">Title</label>
-  <input type="text" name="title" value="<%= @picture.title%>">
-  <label for="">Image Url</label>
-  <input type="text" name="image_url" value="<%= @picture.image_url%>">
+  <label for="">Question</label>
+  <input type="text" name="body" value="<%= @picture.body%>">
+  <label for="">Image File</label>
+  <input type="text" name="image_file" value="<%= @picture.image_file%>">
   <button>Update</button>
 </form>

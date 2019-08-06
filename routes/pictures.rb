@@ -37,8 +37,8 @@ end
 
 put '/pictures/:id' do
   picture = Picture.find(params[:id])
-  picture.title = params[:title]
-  picture.image_url = params[:image_url]
+  picture.body = params[:body]
+  picture.image_file = params[:image_file]
   picture.save
   redirect "/pictures/#{picture.id}"
 end
