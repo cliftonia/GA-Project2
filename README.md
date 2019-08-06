@@ -1,20 +1,22 @@
-# H1 Web App: Whats That? || My First Crud APP
+# Whatsthat
+whatsthat is an app that people post images with a question wanting to find out what the images is.  
 
-### LANGUAGES USED: Ruby, HMTL, CSS
+Here is the link: https://whatsthat-webapp.herokuapp.com/
 
-### TOOLS: Sinatra, ORM, ActiveRecord, CarrierWave,
+## App features:
+* comment on images
+* like comments that pushes up the most liked one to the top
+* Original poster is able to select the correct comment which movies the image into a solved section
+* create user accounts
+* report images that are inappropriate
 
-### CLOUD: AWS S3
+## Technologies
+* Built in Ruby with Sinatra framework
+* ActiveRecord
+* ORM
 
-### DATABASE: Postgres
+## Approach
 
-### LINK: https://sheltered-beyond-96393.herokuapp.com/
+## Challenges & lessons learnt
 
-I have created an CRUD app that is designed for users 
-
-This is a CRUD Web App designed for users to login and post images with questions. 
-
-For example they could write I sore this yesterday and was not sure what it was. 
-
-Other users can post answers to the questions about the images. Other users can upvote the comments and once the OP is happy with one of the answers he can choose to have the images solved 
-
+## Still to do...
