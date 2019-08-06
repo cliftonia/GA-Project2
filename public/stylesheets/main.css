@@ -73,6 +73,10 @@ footer button {
   color: black;
 }
 
+.edit-heading {
+  text-align: center;
+}
+
 .b-flex {
   display: flex;
   justify-content: center;

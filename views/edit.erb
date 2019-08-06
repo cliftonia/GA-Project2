@@ -1,10 +1,12 @@
-<h1>Edit Picture</h1>
+<h1 class="edit-heading">Edit Picture</h1>
 
-<form action="/pictures/<%= @picture.id %>" method="post">
-  <input type="hidden" name="_method" value="put"> 
-  <label for="">Question</label>
-  <input type="text" name="body" value="<%= @picture.body%>">
-  <label for="">Image File</label>
-  <input type="text" name="image_file" value="<%= @picture.image_file%>">
-  <button>Update</button>
-</form>
+<div class="i-uploader">
+  <form action="/pictures/<%= @picture.id %>" method="post">
+    <input type="hidden" name="_method" value="put"> 
+    <label for="">Question</label>
+    <input type="text" name="body" value="<%= @picture.body%>">
+    <label for="">Image File</label>
+    <input type="text" name="image_file" value="<%= @picture.image_file%>">
+    <button>Update</button>
+  </form>
+</div>
