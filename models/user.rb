@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :comments #adds methods to user
-
+  has_many :pictures
   validates_with EmailAddress::ActiveRecordValidator, field: :email
   has_secure_password
 
