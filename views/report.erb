@@ -2,12 +2,16 @@
   <div class="img-section">
   <% @pictures.each do |picture| %>
 
-  <a href="/pictures/<%= picture.id %>"><img src="<%= picture.image_url %>" alt=""></a> 
-
    <a href="/pictures/<%= picture.id %>"><img src="<%= picture.image_file %>" alt=""></a> 
 
   
   <% end %>
 
+  </div>
+  <div class="report-b">
+        <form action="/unreports" method="post">
+        <%# <input type="hidden" name="picture_id" value="<%= @picture.id %>"> %>
+        <button>🐵</button>
+        </form>
   </div>
 </div>

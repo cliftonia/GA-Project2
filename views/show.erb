@@ -1,23 +1,35 @@
-
-
-
-
-
 <div class="show-wrapper">
 
   <img class="show-img" src="<%= @picture.image_file %>" alt="">
 </div>
 
-<div class="report-b">
-  <form action="/reports" method="post">
-  <input type="hidden" name="picture_id" value="<%= @picture.id %>">
-  <button>👮</button>
-</div>
+<% if logged_in? %>
+    
+    <div class="report-b">
+      <form action="/reports" method="post">
+      <input type="hidden" name="picture_id" value="<%= @picture.id %>">
+      <button>🙊</button>
+      </form>
+    </div>
 
+      
+     <% if current_user.username == "admin"%>
 
-</form>
+      <div class="report-b">
+        <form action="/unreports" method="post">
+        <input type="hidden" name="picture_id" value="<%= @picture.id %>">
+        <button>🐵</button>
+        </form>
+      </div>
 
-<h2>Question:</h2>
+    <% end %>
+
+    
+    <%else%>
+
+  <% end %>
+
+<h2>Question: by <span class="username"> <%= @picture.user.username %> </span></h2>
 <p> <%= @picture.body %> </p>
 
 
@@ -75,6 +87,9 @@
 <% end %>
 
 <% if logged_in? %>
+
+
+
 <form action="/comments" method="post">
   <input type="hidden" name="picture_id" value="<%= @picture.id %>">
   <div class="text-area">

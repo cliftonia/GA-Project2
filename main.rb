@@ -1,9 +1,6 @@
 # require 'pry'
 require 'sinatra'
 require 'sinatra/reloader' if development?
-# also_reload 'models/*'
-# also_reload 'views/*'
-# also_reload 'routes/*'
 also_reload File.expand_path(__dir__, 'models/*')
 also_reload File.expand_path(__dir__, 'views/*')
 also_reload File.expand_path(__dir__, 'routes/*')
@@ -76,6 +73,17 @@ post '/reports' do
   report = Picture.find_by id: "#{params[:picture_id]}"
   # binding.pry
   report.reported = params[:picture_id]
+  report.save
+  redirect "/"
+end 
+
+post '/unreports' do 
+  @pictures = Picture.all
+  @pictures = Picture.where.not(reported: nil)
+  @picture = Picture.where(params[:id])
+  report = Picture.find_by id: "#{params[:picture_id]}"
+  # binding.pry
+  report.reported = nil
   report.save
   redirect "/"
 end 
