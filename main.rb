@@ -1,9 +1,11 @@
 # require 'pry'
 require 'sinatra'
-require 'sinatra/reloader' if development?
-also_reload File.expand_path(__dir__, 'models/*')
-also_reload File.expand_path(__dir__, 'views/*')
-also_reload File.expand_path(__dir__, 'routes/*')
+if development?
+  require 'sinatra/reloader' 
+  also_reload File.expand_path(__dir__, 'models/*') 
+  also_reload File.expand_path(__dir__, 'views/*')
+  also_reload File.expand_path(__dir__, 'routes/*')
+end
 require_relative 'database_config'
 require 'email_address'
 
