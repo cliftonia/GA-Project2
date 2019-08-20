@@ -5,31 +5,41 @@ CREATE TABLE pictures (
   title VARCHAR(300),
   body TEXT,
   image_url TEXT,
-  user_id INTEGER
+  user_id INTEGER,
+  date TEXT,
+  created_at timestamp;,
+  updated_at timestamp;,
+  solved INTEGER,
+  image_file TEXT,
+  reported INTEGER
 );
 
 CREATE TABLE comments (
   id SERIAL PRIMARY KEY,
   body TEXT,
   picture_id INTEGER,
-  user_id INTEGER
+  user_id INTEGER,
+  date TEXT,
+  created_at timestamp,
+  updated_at timestamp
 );
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   username VARCHAR(300),
   email VARCHAR(300),
-  password_digest VARCHAR(400)
+  password_digest VARCHAR(400),
+  created_at timestamp,
+  updated_at timestamp
 );
-
-ALTER TABLE pictures ADD COLUMN date TEXT;
-ALTER TABLE comments ADD COLUMN date TEXT;
-ALTER TABLE pictures ADD COLUMN solved INTEGER;
-ALTER TABLE pictures ADD COLUMN image_file TEXT;
-ALTER TABLE pictures ADD COLUMN reported INTEGER;
 
 CREATE TABLE likes (
   id SERIAL PRIMARY KEY,
   user_id INTEGER,
-  comment_id INTEGER
+  comment_id INTEGER,
+  created_at timestamp,
+  updated_at timestamp,
 )
+
+
+-- ALTER TABLE pictures ADD COLUMN reported INTEGER;
