@@ -1,104 +1,118 @@
-<div class="show-wrapper">
+<div class="show-card">
 
-  <img class="show-img" src="<%= @picture.image_file %>" alt="">
-</div>
+  <div class="show-wrapper">
 
-<% if logged_in? %>
-    
-    <div class="report-b">
-      <form action="/reports" method="post">
-      <input type="hidden" name="picture_id" value="<%= @picture.id %>">
-      <button>🙊</button>
-      </form>
-    </div>
+    <img class="show-img" src="<%= @picture.image_file %>" alt="">
+  </div>
 
+  <div class="info-wrapper"> 
+
+
+
+    <h2>Question by: <span class="username"> <%= @picture.user.username %> </span></h2>
+    <p> <%= @picture.body %> </p>
+
+
+
+
+
+    <h2>Answers</h2>
+
+
+    <% @comments.map do |comment| %>
       
-     <% if current_user.username == "admin"%>
-
-      <div class="report-b">
-        <form action="/unreports" method="post">
-        <input type="hidden" name="picture_id" value="<%= @picture.id %>">
-        <button>🐵</button>
+      <p class="comment-p"> <span class="comment-body">"<%= comment.body %>"</span> By <span class="comment-username"> "<%= comment.user.username %>"</span> Date Posted: <span class="comment-created_at"> "<%= comment.created_at %>"</span></p>
+      <% if logged_in? && current_user.id == @picture.user_id && @picture.solved == nil %>
+        <form action="/solved_pictures" method="post">
+          <input type="hidden" name="comment_id" value="<%= comment.id %>">
+          <input type="hidden" name="picture_id" value="<%= @picture.id %>">
+          <button>✅</button>
         </form>
+
+        <% if Like.where(user_id: current_user.id, comment_id: comment.id ).empty? %>
+          <form action="/likes" method="post">
+            <input type="hidden" name="comment_id" value="<%= comment.id %>">
+            <input type="hidden" name="picture_id" value="<%= @picture.id %>">
+            <button>👍</button>
+          </form>
+        <% end %>
+      <% end %>
+    <% end %>
+
+
+    <% Comment.where(picture_id: @picture.id).select do |comment| %>
+      <% if Like.where(comment_id: comment.id).empty? %>
+        <p class="comment-p"> <span class="comment-body">"<%= comment.body %>"</span> By <span class="comment-username"> "<%= comment.user.username %>"</span> Date Posted: <span class="comment-created_at"> "<%= comment.created_at %>"</span></p>
+
+      <%if logged_in? %>
+        <form action="/likes" method="post">
+          <input type="hidden" name="comment_id" value="<%= comment.id %>">
+          <input type="hidden" name="picture_id" value="<%= @picture.id %>">
+          <button>👍</button>
+        </form>
+      <% end %>
+      <% end %>
+    <% end %>
+
+    <% if logged_in? %>
+
+
+
+    <form action="/comments" method="post">
+      <input type="hidden" name="picture_id" value="<%= @picture.id %>">
+      <div class="text-area">
+        <textarea name="body"></textarea>
       </div>
-
-    <% end %>
-
-    
-    <%else%>
-
-  <% end %>
-
-<h2>Question: by <span class="username"> <%= @picture.user.username %> </span></h2>
-<p> <%= @picture.body %> </p>
-
-
-
-<% if logged_in? && current_user.id == @picture.user_id%>
-
-  <a href="/pictures/<%= @picture.id %>/edit">edit picture</a>
-
-<% end %>
-
-<% if logged_in? && (current_user.id == @picture.user_id || current_user.username == "admin") %>
-
-  <form action="/pictures/<%= @picture.id %>" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <button>delete</button>
-  </form>
-
-<% end %>
-
-<h2>Answers</h2>
-
-
-<% @comments.map do |comment| %>
-  <p class="comment-p"> <span class="comment-body">"<%= comment.body %>"</span> By <span class="comment-username"> "<%= comment.user.username %>"</span> Date Posted: <span class="comment-created_at"> "<%= comment.created_at %>"</span></p>
-  <% if logged_in? && current_user.id == @picture.user_id && @picture.solved == nil %>
-    <form action="/solved_pictures" method="post">
-      <input type="hidden" name="comment_id" value="<%= comment.id %>">
-      <input type="hidden" name="picture_id" value="<%= @picture.id %>">
-      <button>✅</button>
+      <div class="answer-b">
+        <button class="btn btn-primary">Answer</button>
+      </div>
     </form>
 
-    <% if Like.where(user_id: current_user.id, comment_id: comment.id ).empty? %>
-      <form action="/likes" method="post">
-        <input type="hidden" name="comment_id" value="<%= comment.id %>">
-        <input type="hidden" name="picture_id" value="<%= @picture.id %>">
-        <button>👍</button>
+    <div class="button-wrappers">
+      <% if logged_in? && current_user.id == @picture.user_id%>
+
+      <a href="/pictures/<%= @picture.id %>/edit">Edit Question</a>
+
+      <% end %>
+
+      <% if logged_in? && (current_user.id == @picture.user_id || current_user.username == "admin") %>
+
+      <form class="show-form" action="/pictures/<%= @picture.id %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button>Delete</button>
       </form>
+
+      <% end %>
+
     <% end %>
-  <% end %>
-<% end %>
 
+      <% if logged_in? %>
+        
+        <div class="report-b">
+          <form class="show-form" action="/reports" method="post">
+          <input type="hidden" name="picture_id" value="<%= @picture.id %>">
+          <button>Report</button>
+          </form>
+        </div>
 
-<% Comment.where(picture_id: @picture.id).select do |comment| %>
-  <% if Like.where(comment_id: comment.id).empty? %>
-    <p class="comment-p"> <span class="comment-body">"<%= comment.body %>"</span> By <span class="comment-username"> "<%= comment.user.username %>"</span> Date Posted: <span class="comment-created_at"> "<%= comment.created_at %>"</span></p>
+          
+        <% if current_user.username == "admin"%>
 
-  <%if logged_in? %>
-    <form action="/likes" method="post">
-      <input type="hidden" name="comment_id" value="<%= comment.id %>">
-      <input type="hidden" name="picture_id" value="<%= @picture.id %>">
-      <button>👍</button>
-    </form>
-  <% end %>
-  <% end %>
-<% end %>
+          <div class="report-b">
+            <form class="show-form" action="/unreports" method="post">
+            <input type="hidden" name="picture_id" value="<%= @picture.id %>">
+            <button>Report</button>
+            </form>
+          </div>
 
-<% if logged_in? %>
+        <% end %>
 
+        
+        <%else%>
 
+      <% end %>
 
-<form action="/comments" method="post">
-  <input type="hidden" name="picture_id" value="<%= @picture.id %>">
-  <div class="text-area">
-    <textarea name="body"></textarea>
+    </div>
   </div>
-  <div class="answer-b">
-    <button class="btn btn-primary">Answer</button>
-  </div>
-</form>
 
-<% end %>
-
+</div>
