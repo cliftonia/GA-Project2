@@ -1,12 +1,12 @@
 # require 'pry'
 require 'sinatra'
+require_relative 'database_config'
 if development?
   require 'sinatra/reloader' 
   also_reload File.expand_path(__dir__, 'models/*') 
   also_reload File.expand_path(__dir__, 'views/*')
   also_reload File.expand_path(__dir__, 'routes/*')
 end
-require_relative 'database_config'
 require 'email_address'
 
 
@@ -53,6 +53,7 @@ after do
   ActiveRecord::Base.connection.close
 end
 
+
 get '/' do
   @pictures = Picture.all
   @pictures = Picture.where(solved: nil, reported: nil)
@@ -65,7 +66,6 @@ get '/about' do
 end
 
 get '/reports' do
-  @pictures = Picture.all
   @pictures = Picture.where.not(reported: nil)
   erb :report
 end 
@@ -83,7 +83,7 @@ post '/unreports' do
   @pictures = Picture.all
   @pictures = Picture.where.not(reported: nil)
   @picture = Picture.where(params[:id])
-  report = Picture.find_by id: "#{params[:picture_id]}"
+  report = Picture.find_by id: params[:picture_id]
   # binding.pry
   report.reported = nil
   report.save

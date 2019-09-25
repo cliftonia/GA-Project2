@@ -4,6 +4,8 @@ require_relative 'database_config'
 require_relative 'models/picture'
 require_relative 'models/comment'
 require_relative 'models/user'
+require_relative 'models/like'
+require_relative 'models/ImageUploader'
 
 Comment.delete_all
 Picture.delete_all

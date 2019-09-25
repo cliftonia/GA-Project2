@@ -41,5 +41,9 @@ CREATE TABLE likes (
   updated_at timestamp,
 )
 
+-- DROP TABLE author;
 
 -- ALTER TABLE pictures ADD COLUMN reported INTEGER;
+-- FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE RESTRICT\
+
+-- timestamptz

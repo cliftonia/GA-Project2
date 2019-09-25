@@ -2,7 +2,7 @@ img {
   width: 50vmin;
   padding: 1vmin;
   height: 50vmin;
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
 
 a {
@@ -10,58 +10,61 @@ a {
 }
 
 .background {
-  background : url(https://i.imgur.com/vGVNHhS.jpg);
+  background: url(https://i.imgur.com/vGVNHhS.jpg);
   width: 100%;
-  color : white;
-  padding : 50px;
+  color: white;
+  padding: 50px;
   text-align: center;
-  background-size : cover;
-  background-position :  center 0%; 
-  animation-duration : 0.5s;
+  background-size: cover;
+  background-position: center 0%;
+  animation-duration: 0.5s;
   animation-name: animatedBackground;
-  animation-iteration-count: infinite; 
+  animation-iteration-count: infinite;
   animation-timing-function: linear;
   animation-play-state: paused;
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
   font-size: 6vmin;
 }
 
 @keyframes animatedBackground {
-  0%, 24% {
-    background-position :  center 12.5%;/*half of the first image... 100% / 4 images / 2*/
+  0%,
+  24% {
+    background-position: center 12.5%; /*half of the first image... 100% / 4 images / 2*/
   }
-    
-  25%, 49% {
-    background-position :  center  37.5%;/*half of he second image, and so on...*/
+
+  25%,
+  49% {
+    background-position: center 37.5%; /*half of he second image, and so on...*/
   }
-  
-  50%, 74%{
-    background-position:  center 62.5%;
+
+  50%,
+  74% {
+    background-position: center 62.5%;
   }
-  
-  75%, 100%{
-    background-position : center 87.5% ;
+
+  75%,
+  100% {
+    background-position: center 87.5%;
   }
-    
 }
 
 .background:hover {
-  
-  animation-play-state:running;
-  
+  animation-play-state: running;
 }
 
 .image-wrapper {
   display: flex;
   justify-content: center;
   padding: 2vmin;
-  
 }
 
 footer {
   background-color: #042f4b;
   text-align: center;
   color: white;
+  display: block;
+  bottom: 0;
+  width: 100%;
 }
 
 footer a {
@@ -152,12 +155,11 @@ input {
 .Wrapper {
   text-align: center;
   padding-bottom: 2vmin;
-} 
-
+}
 
 .img-section {
   display: inline-block;
-  
+
   /* position: relative;
   width: 50%; */
   /* width: 10%;
@@ -165,7 +167,6 @@ input {
   display: inline-block;
   justify-content: center; */
 }
-
 
 .row {
   display: flex;
@@ -200,7 +201,6 @@ input {
 .new-wrapper {
   display: flex;
   justify-content: center;
-
 }
 .report-b {
   display: flex;
