@@ -63,6 +63,7 @@ footer {
   text-align: center;
   color: white;
   display: block;
+  position: inherit;
   bottom: 0;
   width: 100%;
 }
