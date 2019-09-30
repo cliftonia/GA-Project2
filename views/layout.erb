@@ -9,36 +9,35 @@
   <link rel='stylesheet' href='/stylesheets/main.css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-<body class="body">
+  <body class="body">
 
 
 
-  <% if logged_in? %>
-    
-    <div class="nav-bar">
-      <a class="active" href="/">Home</a>
-      <a href="/about">About</a>
-      <a href="/my_pictures">My Questions</a>
-      <a href="/solved_pictures">Solved</a>
-      <a href="/pictures/new">Post new Image</a>
-    </div>
-
-      <% if current_user.username == "admin" %>
+    <% if logged_in? %>
+      
       <div class="nav-bar">
-      <a href="/reports">Reported</a>
-    </div>
+        <a class="active" href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/my_pictures">My Questions</a>
+        <a href="/solved_pictures">Solved</a>
+        <a href="/pictures/new">Post new Image</a>
+      </div>
 
-      <% end %>
-    <%else%>
+        <% if current_user.username == "admin" %>
+        <div class="nav-bar">
+        <a href="/reports">Reported</a>
+      </div>
 
-    <div class="nav-bar">
-      <a class="active" href="/">Home</a>
-      <a href="/about">About</a>
-      <a href="/signup">Sign Up</a>
-      <a href="/login">Login</a>
-    </div>
-  <% end %>
+        <% end %>
+      <%else%>
 
+      <div class="nav-bar">
+        <a class="active" href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/signup">Sign Up</a>
+        <a href="/login">Login</a>
+      </div>
+    <% end %>
 
   <%= yield %>
 

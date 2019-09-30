@@ -91,7 +91,9 @@ a {
 }
 
 .show-card {
-  margin: 17vmin;
+  margin-bottom: 17vmin;
+  margin-left: 17vmin;
+  margin-right: 17vmin;
 }
 
 .text-area > textarea {
@@ -314,6 +316,12 @@ textarea {
 .login-b {
   padding-top: 1vmin;
 }
+
+.container-login {
+  height: 100px;
+  margin-top: 15%;
+}
+
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media screen and (max-width: 800px) {
   .column {
