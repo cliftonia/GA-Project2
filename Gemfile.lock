@@ -35,7 +35,7 @@ GEM
     email_address (0.1.11)
       netaddr (~> 2.0)
       simpleidn
-    excon (0.66.0)
+    excon (0.71.0)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
     ffi (1.11.1)
