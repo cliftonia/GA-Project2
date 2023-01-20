@@ -2,20 +2,18 @@ GEM
   remote: https://rubygems.org/
   specs:
     CFPropertyList (2.3.6)
-    activemodel (5.2.3)
-      activesupport (= 5.2.3)
-    activerecord (5.2.3)
-      activemodel (= 5.2.3)
-      activesupport (= 5.2.3)
-      arel (>= 9.0)
-    activesupport (5.2.3)
+    activemodel (7.0.4.1)
+      activesupport (= 7.0.4.1)
+    activerecord (7.0.4.1)
+      activemodel (= 7.0.4.1)
+      activesupport (= 7.0.4.1)
+    activesupport (7.0.4.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
-      i18n (>= 0.7, < 2)
-      minitest (~> 5.1)
-      tzinfo (~> 1.1)
+      i18n (>= 1.6, < 2)
+      minitest (>= 5.1)
+      tzinfo (~> 2.0)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
-    arel (9.0.0)
     backports (3.15.0)
     bcrypt (3.1.13)
     builder (3.2.3)
@@ -26,7 +24,7 @@ GEM
       image_processing (~> 1.1)
       mimemagic (>= 0.3.0)
       mini_mime (>= 0.1.3)
-    concurrent-ruby (1.1.5)
+    concurrent-ruby (1.1.10)
     declarative (0.0.10)
     declarative-option (0.1.0)
     domain_name (0.5.20190701)
@@ -218,7 +216,7 @@ GEM
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     httpclient (2.8.3)
-    i18n (1.6.0)
+    i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     image_processing (1.9.3)
       mini_magick (>= 4.9.5, < 5)
@@ -234,7 +232,7 @@ GEM
     mini_magick (4.9.5)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
-    minitest (5.12.0)
+    minitest (5.17.0)
     multi_json (1.13.1)
     multipart-post (2.1.1)
     mustermann (1.0.3)
@@ -290,10 +288,9 @@ GEM
       rack-protection (= 2.0.7)
       sinatra (= 2.0.7)
       tilt (~> 2.0)
-    thread_safe (0.3.6)
     tilt (2.0.9)
-    tzinfo (1.2.5)
-      thread_safe (~> 0.1)
+    tzinfo (2.0.5)
+      concurrent-ruby (~> 1.0)
     uber (0.1.0)
     unf (0.1.4)
       unf_ext
@@ -306,7 +303,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
-  activesupport (= 5.2.3)
+  activesupport (= 7.0.4.1)
   bcrypt
   carrierwave
   email_address
